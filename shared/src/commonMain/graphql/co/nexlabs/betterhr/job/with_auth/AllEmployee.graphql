@@ -1,0 +1,41 @@
+query AllEmployeeQuery{
+  me {
+    users: team{
+      id
+      name
+      service_join_date
+      date_of_birth
+      system_status
+      employee_number
+      known_as
+      phone
+      location{
+        id
+        name
+      }
+      position{
+        name
+      }
+      work_email
+      image{
+        thumb_full_path
+      }
+      department{
+        name
+        id
+      }
+      manager{
+        id
+      }
+      policy {
+        country_id
+      }
+      positionBadge {
+        customize_label
+        text_color_code
+        background_color_code
+      }
+    }
+  }
+
+}
