@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin.Companion.isUseJvmIr
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -12,6 +14,7 @@ android {
         targetSdk = BuildConfig.targetSdk
         versionCode = BuildConfig.versionCode
         versionName = BuildConfig.versionName
+        multiDexEnabled = true
     }
     signingConfigs {
         /*register("debug") {
@@ -32,7 +35,11 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
+        kotlinCompilerVersion = "1.5.10"
+        kotlinCompilerExtensionVersion = "1.5.10"
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 //    packaging {
 //        resources {
@@ -79,25 +86,11 @@ dependencies {
     implementation("androidx.compose.foundation:foundation:1.4.3")
     implementation("androidx.compose.material:material:1.4.3")
     implementation("androidx.activity:activity-compose:1.7.1")
+    implementation("androidx.compose.compiler:compiler:1.5.10")
 
     //Navigation Bar
     implementation(NavigationCompose.navigationCompose)
 
-    //Material Compose
     implementation(MaterialCompose.material)
-    implementation(MaterialCompose.materialSize)
-    implementation(MaterialCompose.materialAdaptive)
-    implementation(MaterialCompose.materialAdaptiveSuite)
 
-    //Apollo
-    implementation(Apollo.gradle_plugin)
-    implementation(Apollo.runtime)
-    implementation(Apollo.android)
-    implementation(Apollo.httpCache)
-    implementation(Apollo.rx2)
-    implementation(Apollo.coroutines)
-
-    //Apollo
-    /*api("com.apollographql.apollo3:apollo-runtime:3.8.2")
-    api("com.apollographql.apollo3:apollo-normalized-cache:3.8.2")*/
 }

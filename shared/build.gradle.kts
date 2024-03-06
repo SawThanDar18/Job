@@ -2,10 +2,9 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
-    id("com.apollographql.apollo3")
+    id("com.apollographql.apollo").version("2.4.6")
 }
 
-@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     targetHierarchy.default()
 
@@ -30,11 +29,11 @@ kotlin {
             baseName = "shared"
         }
     }
-    
+
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                //implementation("com.apollographql.apollo:apollo-runtime-kotlin:2.4.6")
             }
         }
         val commonTest by getting {
@@ -42,12 +41,6 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-    }
-}
-
-apollo {
-    service("service") {
-        packageName.set("co.nexlabs.betterhr.job")
     }
 }
 
