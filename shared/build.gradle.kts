@@ -15,9 +15,15 @@ kotlin {
             }
         }
     }
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "shared"
+        }
+    }
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -41,6 +47,11 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
+        val androidMain by getting
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by getting
     }
 }
 
