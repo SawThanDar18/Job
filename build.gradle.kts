@@ -1,8 +1,13 @@
 import org.jetbrains.kotlin.fir.declarations.builder.buildScript
 
 buildscript {
+    val kotlin_version by extra("1.9.22")
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+    repositories {
+        mavenCentral()
     }
 }
 plugins {

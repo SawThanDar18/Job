@@ -92,5 +92,6 @@ dependencies {
     implementation(NavigationCompose.navigationCompose)
 
     implementation(MaterialCompose.material)
+    implementation("androidx.core:core-ktx:+")
 
 }

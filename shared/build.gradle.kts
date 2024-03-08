@@ -3,6 +3,7 @@ plugins {
     kotlin("native.cocoapods")
     id("com.android.library")
     id("com.apollographql.apollo").version("2.4.6")
+    //id("org.jetbrains.kotlin.android")
 }
 
 kotlin {
@@ -59,4 +60,7 @@ android {
     defaultConfig {
         minSdk = BuildConfig.minSdk
     }
+}
+dependencies {
+    implementation("androidx.core:core-ktx:+")
 }
