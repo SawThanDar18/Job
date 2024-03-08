@@ -27,6 +27,7 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
+            isStatic = true
         }
     }
 
@@ -41,6 +42,10 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
+        val androidMain by getting
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
     }
 }
 
